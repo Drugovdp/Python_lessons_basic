@@ -4,14 +4,17 @@
 # Округление должно происходить по математическим правилам (0.6 --> 1, 0.4 --> 0).
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
-def my_round(number, ndigits):
-    pass
+def numtand():
+    import random
+    a, b = map(int, input("Диапозон генерации числа от.. до..").split())
+    n = random.uniform(a,b)
+    i = int(input("Количество знаков после запятой"))
+    nr = round(n, i)
+    return nr
 
-
-print(my_round(2.1234567, 5))
-print(my_round(2.1999967, 5))
-print(my_round(2.9999967, 5))
-
+print("Округляем случайное десятичное число")
+num_rand = numtand()
+print("Результат = ", num_rand)
 
 # Задание-2:
 # Дан шестизначный номер билета. Определить, является ли билет счастливым.
@@ -19,10 +22,14 @@ print(my_round(2.9999967, 5))
 # Билет считается счастливым, если сумма его первых и последних цифр равны.
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
-def lucky_ticket(ticket_number):
-    pass
+def tiket():
+    print("Проверка билета")
+    n = list(input("Введите шестизначное число")) # выводит 6-ти значное число в виде списка ['1', '2', '3', '4', '5', '6']
+    k = list(map(int, n)) # тот же список элементы которого перевели в int
+    if sum(k[0:3]) == sum(k[3:6]):
+        return 'Билет %s счастливый' %k
+    else:
+        return 'Билет %s несчастливый' %k
 
-
-print(lucky_ticket(123006))
-print(lucky_ticket(12321))
-print(lucky_ticket(436751))
+happy_tiket = tiket()
+print(happy_tiket)
